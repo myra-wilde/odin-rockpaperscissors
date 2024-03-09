@@ -33,8 +33,8 @@ function getComputerChoice(){
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = String(playerSelection).toLowerCase();
-    console.log("Computer chooses " + computerSelection);
-    console.log("You choose " + playerSelection);
+    console.log("Computer: " + computerSelection);
+    console.log("You: " + playerSelection);
     let outcome;
 
     if((playerSelection === 'rock') && (computerSelection === 'paper')){
@@ -77,16 +77,12 @@ function playGame(){
         let computerSelection = getComputerChoice();
         console.log("----- ROUND " + i + " -----")
         outcome = playRound(playerSelection, computerSelection);
-        console.log("Ergbenis: " + outcome)
         if(outcome===2){
-            console.log("Tie. Nobody gets points")
             console.log("");
         }else if(outcome===0){
-            console.log("You lost");
             console.log("");
             scoreComputer += 1;
         } else {
-            console.log("You won");
             console.log("");
             scorePlayer += 1;
         }
