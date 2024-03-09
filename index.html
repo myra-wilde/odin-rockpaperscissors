@@ -57,7 +57,7 @@ function playRound(playerSelection, computerSelection) {
         outcome = 1;
     }else if(playerSelection === computerSelection){
         console.log("Its a tie! You both chose " + playerSelection + " !");
-        outcome = 0;
+        outcome = 2;
     }else {
         console.log("Hmmm. Something must have went wrong. Please try again.")
     }
@@ -65,10 +65,50 @@ function playRound(playerSelection, computerSelection) {
     return outcome;
 }
 
+/*
+*    Plays 5 rounds of Rock Paper Scissors and return the result
+*/
+function playGame(){
+    let scoreComputer =0;
+    let scorePlayer=0;
+    let outcome;
+    let playerVictory;
+    for(let i=1; i<6; i++){
+        let computerSelection = getComputerChoice();
+        console.log("----- ROUND " + i + " -----")
+        outcome = playRound(playerSelection, computerSelection);
+        console.log("Ergbenis: " + outcome)
+        if(outcome===2){
+            console.log("Tie. Nobody gets points")
+            console.log("");
+        }else if(outcome===0){
+            console.log("You lost");
+            console.log("");
+            scoreComputer += 1;
+        } else {
+            console.log("You won");
+            console.log("");
+            scorePlayer += 1;
+        }
+    }
 
-const playerSelection = "Rock"
-const computerSelection = getComputerChoice();
-playRound(playerSelection, computerSelection);
+    scoreComputer = Number(scoreComputer);
+    scorePlayer = Number(scorePlayer);
+    if(scorePlayer > scoreComputer){
+        console.log("////////// " + scorePlayer + " : " + scoreComputer + " - You won! //////////");
+        playerVictory = true;
+    }else if(scorePlayer < scoreComputer){
+        console.log("////////// " + scorePlayer + " : " + scoreComputer + " - You lost! //////////");
+        playerVictory = false;
+    }else {
+        console.log("////////// " + scorePlayer + " : " + scoreComputer + " - Its a tie! //////////");
+        playerVictory = false;
+    }
+    return playerVictory;
+}
+
+const playerSelection = "RocK"
+playGame();
 
     </script>
 </body>
