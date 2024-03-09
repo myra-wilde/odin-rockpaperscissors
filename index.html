@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    /*
+    *   creates a random number between 0 and 2 with 0 = rock, 1 = paper, 2 = scissors
+    *   and returns the string associated with that number
+    */
+function getComputerChoice(){
+    let randomChoice = Math.floor(Math.random()*3);
+    let randomChoiceName
+    switch (randomChoice) {
+        case 0:
+            randomChoiceName = 'rock';
+            break;
+        case 1:
+            randomChoiceName = 'paper';
+            break;
+        case 2:
+            randomChoiceName = 'scissors';
+            break;
+        default:
+            break;
+    }
+    console.log(randomChoice + ' = ' + randomChoiceName);
+    return randomChoiceName;
+}
+getComputerChoice();
+
+    </script>
+</body>
+</html>
